@@ -146,6 +146,11 @@ Pour créer le "squelette" de la page:
 - Créez la zone où vos tâches vont apparaître
 - **Test :** Votre page s'affiche dans le navigateur (même si ce n'est pas encore)
 
+<!-- [Screen shot 1](./screen-shots/screen-shot1.png) -->
+<center>
+    <img src="./screen-shots/screen-shot1.png">
+</center>
+
 ### Étape 2 : Le Style CSS
 
 Cette étape s'interesse à la mise en form de votre application. Pour ce faire:
@@ -155,6 +160,10 @@ Cette étape s'interesse à la mise en form de votre application. Pour ce faire:
 - Ajoutez des couleurs, des bordures
 - Rendez les boutons jolis
 - **Test :** Votre page est un peu plus belle même si elle ne fonctionne pas encore
+
+<center>
+    <img src="./screen-shots/screen-shot2.png">
+</center>
 
 ### Étape 3 : JavaScript de base
 
