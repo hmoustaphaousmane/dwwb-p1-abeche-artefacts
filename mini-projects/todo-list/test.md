@@ -76,40 +76,61 @@
     let message = tache ? "Tâche valide" : "Tâche vide";
     ```
 
-4. Selectionner un élément du DOM
+4. Le DOM (Document Object Model) en JavaScript
 
-    - Sélection par ID
+    Le DOM est une interface de programmation (API) qui permet de représent les documents HTML (et XML) en un structure arborescente où chaque éléement du document est un nœud. JavaScript permet de manipuler ces nœud (éléments) pour rendre nos pages web dynamiques.
 
-    ```javascript
-    const bouton = document.getElementById("monBouton");
-    const input = document.getElementById("champTexte");
+    ```mermaid
+    graph TD
+    A[document] --> B[html]
+    B --> C[head]
+    B --> D[body]
+    C --> E[title]
+    C --> F[meta]
+    D --> G[h1]
+    D --> H[p]
+    D --> I[div]
+    I --> J[ul]
+    J --> K[li]
+    J --> L[li]
     ```
 
-    - Sélection par classe
+    - Sélection un élément du DOM
 
-    ```javascript
-    const elements = document.getElementsByClassName("maClasse");
-    ```
+        Javascript offre plusieur méthodes pour selectionner les éléments du DOM.
 
-    - Sélecteurs CSS (plus moderne)
+        - Sélection par ID: On peut sélectionner un élément par son identifiant en uitlisant la méthode `getElementById()`.
 
-    ```javascript
-    const element = document.querySelector("#monId");
-    const tous = document.querySelectorAll(".maClasse");
-    ```
+        ```javascript
+        const bouton = document.getElementById("monBouton");
+        const input = document.getElementById("champTexte");
+        ```
 
-5. Manipulation du contenu
+        - Sélection par classe: La méthode `getElementsByClassName()` nous permet de sélctionner les éléments par leur classe. Elle prend en paramètre une classe et retourne une collection (liste) de tous les éléments qui ont cette classe.
 
-    - Changer le texte
+        ```javascript
+        const elements = document.getElementsByClassName("maClasse");
+        ```
 
-    ```javascript
-    element.textContent = "Nouveau texte";
-    element.innerHTML = "<strong>Texte en gras</strong>";
-    ```
+        - Sélecteurs CSS: Plus moderne, on sélection un(plusieurs) élément(s) par son sélecteur CSS grâce aux méthodes `querySelector()` et `querySelectorAll()`. Tous deux prennent en paramètre un sélecteur CSS. `querySelector()` retourne la première occurence d'élément ayant le sélecteur spécifié alors que `querySelectorAll()` retourne une collection de tous les éléments ayant le sélecteur.
 
-    - Changer les attributs
+        ```javascript
+        const element = document.querySelector("#monId");
+        const tous = document.querySelectorAll(".maClasse");
+        ```
 
-    ```javascript
-    input.value = "nouvelle valeur";
-    image.src = "nouvelle-image.jpg";
-    ```
+    - Manipulation du contenu
+
+        - Changer le texte
+
+        ```javascript
+        element.textContent = "Nouveau texte";
+        element.innerHTML = "<strong>Texte en gras</strong>";
+        ```
+
+        - Changer les attributs
+
+        ```javascript
+        input.value = "nouvelle valeur";
+        image.src = "nouvelle-image.jpg";
+        ```
