@@ -37,7 +37,116 @@
 
     Le terme de « temporal dead zone » (ou zone morte temporelle) en JavaScript désigne l'endroit où une variable déclarée avec `let`, `const`, ou `class` est placée depuis le début du bloc jusqu'à ce que l'exécution du code atteigne sa déclaration et son initialisation. Comme mentionné ci-dessus, toute tentative d'accès à la variable alors qu'elle se trouve dans la zone morte temporelle, résultera en une `ReferenceError`.
 
-2. Les fonctions
+2. Les stuctures conditionnelles (`if`, `if/else`, `switch/case`)
+
+    Les strucutres conditionelles sont des structures de base en programmation qui permettent d'exécuter un bloc de code suivant une condition.
+
+    - `if`
+
+        La structure conditionnelle `if` exécute un bloc de code si un conditin est vérifier. Les intructions définis dans le bloc de code de `if` ne sera donc exécuter que si la condition qu'on lui passe en parmettre est évaluée à `true` (vrai).
+
+        ```mermaid
+        flowchart LR
+        ID1[Début]
+        ID1 --> ID2{Condition?}
+        ID2 -- True --> ID3[Exécuter le bloc]
+        ID2 -- False --> ID4[End]
+        ID3 --> ID4[End]
+        ```
+
+        ```javascript
+        let name = "ali";
+
+        if (name === "ali") {
+            console.log("Bonjour", name);
+        }
+        ```
+
+    - `if/else`
+
+        Cette structure permet d'exécuter un premier bloc de code si la condition retourne `true` ou un autre bloc de code au cas contraire. Donc, si la condition dans le `if` est vraie le bloc du `if` sera exécuté sinon le bloc du `else` sera exécuter.
+
+        ```mermaid
+        flowchart LR
+        ID1[Début]
+        ID1 --> ID2{Condition?}
+        ID2 -- true --> ID3[Exécuter le bloc du if]
+        ID2 -- False --> ID4[Exécuter le bloc du else]
+        ID3 --> ID5[End]
+        ID4 --> ID5[End]
+        ```
+
+        ```javascript
+        let tache = "";
+
+        if (tache === "") {
+            alert("Veuillez saisir une tâche !");
+        } else {
+            console.log("Tâche ajoutée : " + tache);
+        }
+        ```
+
+    - `switch/case`
+
+        La stucture conditionnelle `switch/case` permet d'exécuter une suite d'instruction suivant la valeur d'une variable `case`. Elle permet de gérer les conditions multiples de manière plus lisible et structurée. Son fonctionnment est le suivant: on passe en paramètre à `switcht` la variable à évaluer, pour chaque cas `case` de figure (chaque valeur que peut prendre la variable), on exécute les intructions dans le bloc correspondant. Pour terminer, dans chaque `case` on met l'intruction `break` qui permet sortir de l'instruction switch. Si la valeur prise par la variable ne corredpond à aucune clause `case`, le programme va exécuter les instructions qui se trouve dans la clause optionnelle `default`. Cette clause est utilisée en dernier recours mais si elle n'est pas définie, le programme continue son exécution après l'instruction switch (sans exécuter aucune des intructions dans les clauses `case` bien-sûr).
+
+        ```mermaid
+        flowchart TD
+        A[Début] --> B[Évaluer l'expression]
+        B --> C{case?}
+        C -->|Oui| D[Exécuter les instructions du bloc correspondant]
+        D --> E{break?}
+        E -->|Oui| F[Quitter l'instructin switch]
+        E -->|Non| G[Continuer au case suivant]
+        G --> C
+        C -->|Aucune correspondance & pas de default| F
+        C -->|Non, tester le case suivant| C
+        C -->|Aucune correspondance mais la clause default existe| H[Exécuter le code du default]
+        H --> F
+        F --> I[Fin]
+        ```
+
+        ```javascript
+        const ponctuation = ";"
+
+        switch (ponctuation) {
+            case ",":
+                console.log("C'est une virgule.");
+                break;
+            case ";":
+                console.log("C'est un point-virgule.");
+                break;
+            case ":":
+                console.log("Ce sont deux-points.");
+                break;
+            case ".":
+                console.log("C'est un point.");
+                break;
+            case "...":
+                console.log("Ce sont des point de suspensions.");
+                break;
+            case "?":
+                console.log("C'est un point d'interrogation.");
+                break;
+            case "!":
+                console.log("C'est un point d'exclamation.");
+                break;
+            default:
+                console.log("C'est n'est un signe de ponctuation.");
+                break;
+        }
+
+        console.log("Instruction après swith");
+        ```
+
+    - L'opérateur ternaire (ternary operator)
+
+        ```javascript
+        // Opérateur ternaire (bonus)
+        let message = tache ? "Tâche valide" : "Tâche vide";
+        ```
+
+3. Les fonctions
 
     - Déclaration de fonction
 
@@ -59,21 +168,6 @@
 
     ```javascript
     const multiplier = (x, y) => x * y;
-    ```
-
-3. La stucture conditionnelle `if/else`
-
-    ```javascript
-    let tache = "";
-
-    if (tache === "") {
-        alert("Veuillez saisir une tâche !");
-    } else {
-        console.log("Tâche ajoutée : " + tache);
-    }
-
-    // Opérateur ternaire (bonus)
-    let message = tache ? "Tâche valide" : "Tâche vide";
     ```
 
 4. Le DOM (Document Object Model) en JavaScript
