@@ -173,7 +173,7 @@ maPromise
 
 ### Application 3 : Convertir le callback en Promise
 
-Transformer la fonction de téléchargement en utilisant les Promises.
+Transformer la fonction de téléchargement precédante ([Application 2](#application-2--créer-votre-premier-callback)) en utilisant les Promises.
 
 ### Méthodes utiles des Promises
 
@@ -199,7 +199,7 @@ Promise.all([promiseA, promiseB, promiseC])
 
 #### Promise.race() - La première qui se termine
 
-La méthode `race()` prend également en paramètre un itérable de promise (une liste de promise) et renvoie une promise qui est tenue (status `fulfilled`) ou rompue (status `rejected`) dès que l'une des promises de l'itérable est tenue ou rompue avec la valeur ou l;erreur correspondante.
+La méthode `race()` prend également en paramètre un itérable de promise (une liste de promise) et renvoie une promise qui est tenue (status `fulfilled`) ou rompue (status `rejected`) dès que l'une des promises de l'itérable est tenue ou rompue avec la valeur ou l'erreur correspondante.
 
 ```javascript
 Promise.race([promiseA, promiseB, promiseC])

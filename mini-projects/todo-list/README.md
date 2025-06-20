@@ -31,7 +31,7 @@ Dans ce mini projet, vous allez créer votre première application web interacti
   - Les callbacks (fonctions de rappel)
   - La destrcuturation
 
-Pour tester votre connaissance sur ces notions, vous pouvez resoudre l'exercice qui se trouve [ici](./test.md).
+Pour avoir une idée sur ces notions, vous pouvez consulter un aperçu sur les notions de base du JavaScript [ici](../../javascript-basics.md).
 
 ## Ce que votre application doit faire
 
