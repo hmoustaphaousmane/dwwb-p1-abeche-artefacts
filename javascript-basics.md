@@ -148,27 +148,48 @@
 
 3. Les fonctions
 
+    Une fonction est un bloc (bout) de code qui exécute une tâche spécifique et qui peut être appelé plusieurs fois. Elle permet d'encapsuler un ensemble de tâches ou instructions fréquentes ou qui se repètent pour de fin de réutilisabilité et d'organisation. On peut dire que c'est un sous-programmme qui peut être appellé par un autre code du programme ou par lui-même dans le cas de la récursivité.
+
     - Déclaration de fonction
 
-    ```javascript
-    function direBonjour() {
-        console.log("Bonjour !");
-    }
-    ```
+        En JavaScript, on peut déclarer ou définir une fonstion en utilisant l'un des deux synthaxes suivants:
+
+        - Le mot clé `function`
+
+        ```javascript
+        function nomFonction() {
+            // corps de la fonction
+        }
+        ```
+
+        - Fonction fléchée
+
+        ```javascript
+        const nomFonction = () => {
+            // corps de la fonction
+        };
+        ```
 
     - Fonction avec paramètres
 
-    ```javascript
-    function additionner(a, b) {
-        return a + b;
-    }
-    ```
+        Une fonction peut prendre des valeurs en paramètre (argument) pour effectuer des traîtements éventuels sur ces valeurs. Les arguments d'une fonction sont placés dans les parenthèses qui suivent le nom de la fonction dans sa décalration.
 
-    - Fonction fléchée (optionnel mais utile)
+        ```javascript
+        function nomFonction(params) {
+            // corps de la fonction
+        }
+        ```
 
-    ```javascript
-    const multiplier = (x, y) => x * y;
-    ```
+    - Valeur de retour
+
+        Une fonctions peut retourner également un resultat qui est appellé valeur de retour.
+
+        ```javascript
+        // une fonction que prend en paramètre deux nombres et retourne leur somme.
+        const addition = (x, y) => {
+            return x + y;
+        }
+        ```
 
 4. Le DOM (Document Object Model) en JavaScript
 
