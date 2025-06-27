@@ -191,6 +191,23 @@
         }
         ```
 
+---
+
+### Application 1: Guess Number
+
+**Écrire un script qui génère un nombre aléatoirment entre 1 et 100 et demande à l'utilsatuer de deviner.**
+
+- Crée une variable dans laquelle on stocke la valeur aléatoirement générée (toGuess).
+- On recupère l'entrée de l'utilisateur dans une variable (guess).
+- Tester si `guess` est compris entre 1 et 100
+  - Si oui, comparer `guess` à `toGuess`:
+    - Si `guess` et égale à `toGuess`, super.
+    - Sinon si `guess` est inférieur à `toGuess`, on alerte l'utilisateur que le nombre à deviner (`toGuess`) est plus grand que le nombre deviner (`guess`).
+    - Sinon, on alerte l'utilisateur que le nombre à deviner (`toGuess`) est plus petit que le nombre deviner (`guess`).
+- Sinon, on alerte l'utilisteur pour lui faire savoir que le nombre entré est en dehors de l'intervalle.
+
+---
+
 4. Le DOM (Document Object Model) en JavaScript
 
     Le DOM est une interface de programmation (API) qui permet de représent les documents HTML (et XML) en un structure arborescente où chaque éléement du document est un nœud. JavaScript permet de manipuler ces nœud (éléments) pour rendre nos pages web dynamiques.
