@@ -193,7 +193,7 @@
 
 ---
 
-### Application 1: Guess Number
+**Application 1: Guess Number**
 
 **Écrire un script qui génère un nombre aléatoirment entre 1 et 100 et demande à l'utilsatuer de deviner.**
 
