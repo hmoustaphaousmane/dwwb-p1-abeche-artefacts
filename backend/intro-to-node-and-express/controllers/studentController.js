@@ -27,22 +27,26 @@ const getSingleStudent = async (req, res) => {
 
 // Add a new students
 const addStudent = async (req, res) => {
-  const student = req.body;
-  //   console.log(student);
+  const { name, age } = req.body;
+  console.log(req.decoded.userId);
 
   try {
-    await studentModel.create(student);
+    const student = await studentModel.create({
+      name,
+      age,
+      userId: req.decoded.userId,
+    });
+
+    res.send({
+      message: "Student added successfully",
+      student,
+    });
   } catch (error) {
     res.send({
       message: error.message,
     });
     return;
   }
-
-  res.send({
-    message: "Student added successfully",
-    student,
-  });
 };
 
 // Update a student

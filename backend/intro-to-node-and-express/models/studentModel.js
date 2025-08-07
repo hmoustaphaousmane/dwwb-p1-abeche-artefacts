@@ -11,6 +11,10 @@ const schema = mongoose.Schema(
       type: Number,
       required: true,
     },
+    userId: {
+      type: mongoose.Types.ObjectId,
+      required: true,
+    },
   },
   {
     timestamps: true,
