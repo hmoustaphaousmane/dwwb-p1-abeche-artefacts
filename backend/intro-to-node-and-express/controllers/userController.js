@@ -1,14 +1,25 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require('dotenv').config;
+const { v4 } = require("uuid");
+
 const userModel = require("../models/userModel");
 const generateOTP = require("../utils/generateOTP");
-const { v4 } = require("uuid");
 const otpModel = require("../models/otpModel");
 const transporter = require("../utils/mailTransporter");
+const {userSchema} = require("../models/validation");
 
 const register = async (req, res) => {
   const { name, email, password } = req.body;
+
+  const { error } = userSchema.validate({ name, email, password });
+
+  if (error) {
+    console.log(error);
+    
+    return res.status(400).send({ error: error.message })
+  }
+
 
   const userExists = await userModel.findOne({ email });
   if (userExists) {
@@ -97,7 +108,7 @@ const verify = async (req, res) => {
 const login = async (req, res) => {
   // console.log(req.body);
   const { email, password } = req.body;
-  
+
   const user = await userModel.findOne({ email });
   // console.log(user);
   if (!user) {
