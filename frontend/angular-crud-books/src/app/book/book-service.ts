@@ -15,4 +15,13 @@ export class BookService {
   };
 
   constructor(private httpClient: HttpClient) {}
+
+  getAll(): Observable<any> {
+    return this.httpClient.get(this.baseUrl + '/books').pipe(
+      catchError((error) => {
+        console.log(error);
+        return throwError(() => error);
+      })
+    );
+  }
 }
