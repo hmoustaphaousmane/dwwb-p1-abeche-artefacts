@@ -57,3 +57,15 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## TODO
+
+1. Add a book
+
+2. View a Book
+
+3. List all books
+
+4. Update a book's
+
+5. Delete a book
