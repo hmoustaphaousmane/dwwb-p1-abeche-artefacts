@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { BookService } from '../book-service';
 import { BookInterface } from '../book-interface';
-import { Route, Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-index',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './index.html',
   styleUrl: './index.css'
 })

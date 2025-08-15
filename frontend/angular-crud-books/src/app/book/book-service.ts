@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
+import { BookInterface } from './book-interface';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,7 @@ export class BookService {
     }),
   };
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   getAll(): Observable<any> {
     return this.httpClient.get(this.baseUrl + '/books').pipe(
@@ -23,5 +24,18 @@ export class BookService {
         return throwError(() => error);
       })
     );
+  }
+
+  create(book: BookInterface): Observable<any> {
+    return this.httpClient.post(
+      this.baseUrl + '/books',
+      JSON.stringify(book),
+      this.httpOption)
+      .pipe(
+        catchError((error) => {
+          console.log(error);
+          return throwError(() => error);
+        })
+      );
   }
 }
