@@ -8,7 +8,7 @@ import { Delete } from './book/delete/delete';
 export const routes: Routes = [
     { path: 'book', component: Index },
     { path: 'book/create', component: Create },
-    { path: 'book/read', component: Read },
+    { path: 'book/read/:bookId', component: Read },
     { path: 'book/edit', component: Edit },
     { path: 'book/delete', component: Delete },
     { path: '**', redirectTo: 'book' },
