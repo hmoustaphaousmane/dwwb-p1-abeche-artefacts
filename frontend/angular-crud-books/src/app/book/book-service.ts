@@ -38,4 +38,13 @@ export class BookService {
         })
       );
   }
+
+  getSingle(id: number): Observable<any> {
+    return this.httpClient.get(this.baseUrl + '/books/' + id).pipe(
+      catchError((error) => {
+        console.log(error);
+        return throwError(() => error);
+      })
+    );
+  }
 }

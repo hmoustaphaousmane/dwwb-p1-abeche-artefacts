@@ -8,6 +8,7 @@
         <th scope="col">Title</th>
         <th scope="col">Author</th>
         <th scope="col">Year</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -17,6 +18,11 @@
         <td>{{book.title}}</td>
         <td>{{book.author}}</td>
         <td>{{book.publicationYear}}</td>
+        <td id="actions">
+          <a [routerLink]="['/book/read/', book._id]" class="btn btn-info ">View</a>
+          <a [routerLink]="['/book/create']" class="btn btn-warning">Edit</a>
+          <a [routerLink]="['/book/create']" class="btn btn-danger">Delete</a>
+        </td>
       </tr>
       }
     </tbody>
