@@ -21,7 +21,7 @@
         <td id="actions">
           <a [routerLink]="['/book/read/', book._id]" class="btn btn-info ">View</a>
           <a [routerLink]="['/book/create']" class="btn btn-warning">Edit</a>
-          <a [routerLink]="['/book/create']" class="btn btn-danger">Delete</a>
+          <button (click)="deleteBook(book._id)" class="btn btn-danger">delete</button>
         </td>
       </tr>
       }

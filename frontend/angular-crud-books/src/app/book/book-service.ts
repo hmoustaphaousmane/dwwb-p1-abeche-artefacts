@@ -15,7 +15,7 @@ export class BookService {
     }),
   };
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   getAll(): Observable<any> {
     return this.httpClient.get(this.baseUrl + '/books').pipe(
@@ -27,10 +27,8 @@ export class BookService {
   }
 
   create(book: BookInterface): Observable<any> {
-    return this.httpClient.post(
-      this.baseUrl + '/books',
-      JSON.stringify(book),
-      this.httpOption)
+    return this.httpClient
+      .post(this.baseUrl + '/books', JSON.stringify(book), this.httpOption)
       .pipe(
         catchError((error) => {
           console.log(error);
@@ -41,6 +39,15 @@ export class BookService {
 
   getSingle(id: number): Observable<any> {
     return this.httpClient.get(this.baseUrl + '/books/' + id).pipe(
+      catchError((error) => {
+        console.log(error);
+        return throwError(() => error);
+      })
+    );
+  }
+
+  delete(id: string): Observable<any> {
+    return this.httpClient.delete(this.baseUrl + '/books/' + id).pipe(
       catchError((error) => {
         console.log(error);
         return throwError(() => error);
