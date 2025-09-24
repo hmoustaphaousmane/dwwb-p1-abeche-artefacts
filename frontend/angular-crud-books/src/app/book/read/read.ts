@@ -10,7 +10,7 @@ import { BookInterface } from '../book-interface';
   styleUrl: './read.css'
 })
 export class Read {
-  id!: number;
+  id!: string;
   book!: BookInterface;
 
   constructor(public bookService: BookService, private router: Router, private route: ActivatedRoute) { }

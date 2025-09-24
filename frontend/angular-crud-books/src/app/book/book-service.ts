@@ -37,13 +37,24 @@ export class BookService {
       );
   }
 
-  getSingle(id: number): Observable<any> {
+  getSingle(id: string): Observable<any> {
     return this.httpClient.get(this.baseUrl + '/books/' + id).pipe(
       catchError((error) => {
         console.log(error);
         return throwError(() => error);
       })
     );
+  }
+
+  update(id: string, book: BookInterface): Observable<any> {
+    return this.httpClient
+      .put(this.baseUrl + '/books/' + id, JSON.stringify(book), this.httpOption)
+      .pipe(
+        catchError((error) => {
+          console.log(error);
+          return throwError(() => error);
+        })
+      );
   }
 
   delete(id: string): Observable<any> {

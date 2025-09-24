@@ -1,1 +1,55 @@
-<p>edit works!</p>
+<div class="container mt-5">
+  <div class="table-title">
+    <div class="row">
+      <div class="col-sm-6">
+        <h1>Edit Post</h1>
+      </div>
+
+      <div class="col-sm-6 text-end">
+        <a routerLink="/post/index" class="btn btn-success">
+          <i class="fas fa-arrow-circle-left"></i> Back
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group mb-3">
+      <label for="title">Title:</label>
+      <input formControlName="title" type="text" id="title" class="form-control" />
+      @if (f['title'].touched && f['title'].invalid) {
+      <div class="alert alert-danger">
+        @if (f['title'].errors?.['required']) {
+        <div>Title is required.</div>
+        }
+      </div>
+      }
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="author">Author</label>
+      <input formControlName="author" type="text" id="author" class="form-control" />
+      @if (f['author'].touched && f['author'].invalid) {
+      <div class="alert alert-danger">
+        @if (f['author'].errors?.['required']) {
+        <div>author is required</div>
+        }
+      </div>
+      }
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="publicationYear">Year</label>
+      <input formControlName="publicationYear" type="number" id="publicationYear" class="form-control" />
+      @if (f['publicationYear'].touched && f['publicationYear'].invalid) {
+      <div class="alert alert-danger">
+        @if (f['publicationYear'].errors?.['required']) {
+        <div>publicationYear is required</div>
+        }
+      </div>
+      }
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
+  </form>
+</div>
