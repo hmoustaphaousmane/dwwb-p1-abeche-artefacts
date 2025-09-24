@@ -24,8 +24,10 @@ export class Index {
   }
 
   deleteBook(id: string) {
-    this.bookService.delete(id).subscribe(() => {
-      this.books = this.books.filter((book) => book._id !== id);
-    });
+    if (confirm("Are you sure you want to delete this book? This action is irreversible.")) {
+      this.bookService.delete(id).subscribe(() => {
+        this.books = this.books.filter((book) => book._id !== id);
+      });
+    }
   }
 }
