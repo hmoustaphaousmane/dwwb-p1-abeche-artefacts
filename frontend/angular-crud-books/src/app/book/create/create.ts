@@ -1,20 +1,21 @@
 import { CommonModule } from '@angular/common';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
 import { BookService } from '../book-service';
 import { Router } from '@angular/router';
 import { books } from '../books';
+import { BackBtn } from '../../components/back-btn/back-btn';
 
 @Component({
   selector: 'app-create',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, BackBtn],
   templateUrl: './create.html',
-  styleUrl: './create.css'
+  styleUrl: './create.css',
 })
 export class Create {
   form!: FormGroup;
 
-  constructor(public bookService: BookService, private router: Router) { }
+  constructor(public bookService: BookService, private router: Router) {}
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -30,11 +31,13 @@ export class Create {
 
   handleSubmit() {
     console.log(this.form.value);
+    // const {title, author, year} = this.form.value;
+    // console.log({title, author, year});
 
     this.bookService.create(this.form.value).subscribe((res: any) => {
-      console.log("Book added successfully.");
+      console.log('Book added successfully.');
 
       this.router.navigateByUrl('book');
-    })
+    });
   }
 }
