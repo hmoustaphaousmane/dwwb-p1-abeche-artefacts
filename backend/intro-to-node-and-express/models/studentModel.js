@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const mongoosePaginate =require("mongoose-paginate-v2");
 
 // Create a schema
 const schema = mongoose.Schema(
@@ -20,6 +21,8 @@ const schema = mongoose.Schema(
     timestamps: true,
   }
 );
+
+schema.plugin(mongoosePaginate);
 
 // create students model
 const studentModel = mongoose.model("students", schema);

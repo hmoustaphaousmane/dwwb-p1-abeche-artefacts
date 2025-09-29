@@ -2,7 +2,18 @@ const studentModel = require("../models/studentModel");
 
 // Get all students
 const getStudents = async (req, res) => {
-  const students = await studentModel.find();
+  let { page, limit } = req.params;
+
+  // console.log(req.params);
+
+  // const students = await studentModel.find().select("-name");
+  const students = await studentModel.paginate(
+    {},
+    {
+      page: (page && isNaN(page)) == false ? Number.parseInt(page) : 1,
+      limit: (limit && isNaN(limit)) == false ? Number.parseInt(limit) : 5,
+    }
+  );
 
   res.send({
     students,
