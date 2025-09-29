@@ -4,7 +4,7 @@ const authMiddleware = require("../middlewares/authMiddleware")
 
 const router = express.Router();
 
-router.get("/", studentController.getStudents);
+router.get("/:page/:limit", studentController.getStudents);
 router.get("/:id", studentController.getSingleStudent);
 router.post("/", authMiddleware, studentController.addStudent);
 router.patch("/:id", studentController.updateStudent);
