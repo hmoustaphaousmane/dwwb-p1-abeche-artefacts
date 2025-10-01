@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "NODE_ENV=dev nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test jest",
+    "test:auth": "NODE_ENV=test jest ./__tests__/auth.test.js"
   },
   "keywords": [],
   "author": "",

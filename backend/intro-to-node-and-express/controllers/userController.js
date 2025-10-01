@@ -1,13 +1,13 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-require('dotenv').config;
+require("dotenv").config;
 const { v4 } = require("uuid");
 
 const userModel = require("../models/userModel");
 const generateOTP = require("../utils/generateOTP");
 const otpModel = require("../models/otpModel");
 const transporter = require("../utils/mailTransporter");
-const {userSchema} = require("../models/validation");
+const { userSchema } = require("../models/validation");
 
 const register = async (req, res) => {
   const { name, email, password } = req.body;
@@ -16,10 +16,9 @@ const register = async (req, res) => {
 
   if (error) {
     console.log(error);
-    
-    return res.status(400).send({ error: error.message })
-  }
 
+    return res.status(400).send({ error: error.message });
+  }
 
   const userExists = await userModel.findOne({ email });
   if (userExists) {
@@ -37,7 +36,7 @@ const register = async (req, res) => {
     });
   } catch (error) {
     res.send({
-      message: "l utilisateur n est pas ajouté",
+      message: error.message,
     });
     return;
   }
@@ -64,10 +63,9 @@ const register = async (req, res) => {
         `,
   });
 
-  res.send({
-    message: "l utilisateur est ajouté ",
+  res.status(201).send({
+    message: "user added successfuly",
     otpToken,
-    user,
   });
 };
 
@@ -125,14 +123,14 @@ const login = async (req, res) => {
   const token = jwt.sign(
     {
       userId: user._id,
-      email: user.email
+      email: user.email,
     },
     process.env.SECRET_KEY
   );
   // console.log(token);
   res.send({
     message: "user connect successfully",
-    token
+    token,
   });
 };
 
